@@ -5,6 +5,9 @@ const API_ENDPOINT = 'https://mercury.postlight.com/parser?url='
 
 class MercuryClient {
   constructor (apiKey) {
+    if (!apiKey) {
+      throw new Exception('No API key supplied in MercuryClient instantiation.')
+    }
     this._apiKey = apiKey
   }
 
