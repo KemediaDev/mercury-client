@@ -12,7 +12,7 @@ npm install "PermanentRecord/mercury-client"
 const MercuryClient = require('mercury-client')
 const mc = new MercuryClient(YOUR_API_KEY_HERE)
 mc.parse('https://trackchanges.postlight.com/building-awesome-cms-f034344d8ed')
-    .then((data) => { console.log('data', data} )
+    .then((data) => { console.log('data', data) } )
     .catch((e) => { console.log('error', e)} )
 ```
 [Mercury web parser]: https://mercury.postlight.com/web-parser/
