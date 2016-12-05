@@ -5,7 +5,7 @@ This is a simple Node library library to consume the [Mercury web parser].
 ## Installation
 First, get an API key at: https://mercury.postlight.com/web-parser/
 ```
-npm install "PermanentRecord/mercury-client"
+npm install mercury-client --save
 ```
 ## Usage
 ```
