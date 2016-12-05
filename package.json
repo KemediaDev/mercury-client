@@ -1,7 +1,7 @@
 {
   "name": "mercury-client",
   "version": "1.0.0",
-  "description": "Node client for Postlight's Mercury service",
+  "description": "Node client for Postlight's Mercury web parsing service",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/PermanentRecord/mercury-client.git"
   },
   "author": "Jeffery Bennett <jeffery@permanentrecord.io>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/PermanentRecord/mercury-client/issues"
   },
