@@ -24,6 +24,7 @@ class MercuryClient {
         data.cleanContent = entities
           .decode(striptags(data.content || ''))
           .replace(/[\n|\r]+/g, ' ')
+          .replace(/\s{2,}/g, ' ')
           .trim()
         return data
       })
