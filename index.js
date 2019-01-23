@@ -2,7 +2,6 @@ const axios = require('axios')
 const striptags = require('striptags')
 const Entities = require('html-entities').AllHtmlEntities
 const entities = new Entities()
-const { get } = require('lodash')
 
 class MercuryClient {
   constructor(apiKey) {

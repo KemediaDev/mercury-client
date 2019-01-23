@@ -28,7 +28,7 @@ mc.parse('https://trackchanges.postlight.com/building-awesome-cms-f034344d8ed')
 
 ## Version History
 
-1.0.0 - Used request + request promise
-2.0.0 - Uses axios, adds `cleanContent` value to response.
+- 1.0.0 - Used request + request promise
+- 2.0.0 - Uses axios, adds `cleanContent` value to response.
 
 [mercury web parser]: https://mercury.postlight.com/web-parser/
