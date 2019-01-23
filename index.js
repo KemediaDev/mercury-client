@@ -1,33 +1,33 @@
-'use strict'
-
-const rp = require('request-promise')
-const API_ENDPOINT = 'https://mercury.postlight.com/parser?url='
+const axios = require('axios')
+const striptags = require('striptags')
+const Entities = require('html-entities').AllHtmlEntities
+const entities = new Entities()
+const { get } = require('lodash')
 
 class MercuryClient {
-  constructor (apiKey) {
+  constructor(apiKey) {
     if (!apiKey) {
-      throw new Exception('No API key supplied in MercuryClient instantiation.')
+      throw new Error('No API key supplied in MercuryClient instantiation.')
     }
     this._apiKey = apiKey
   }
 
-  parse (url) {
-    return new Promise((resolve, reject) => {
-      let opts = {
-        url: API_ENDPOINT + encodeURIComponent(url),
+  async parse(url) {
+    return axios
+      .get(`https://mercury.postlight.com/parser?url=${encodeURIComponent(url)}`, {
         headers: {
-          'x-api-key': this._apiKey
-        }
-      }
-      rp(opts)
-        .then((data) => {
-          // Parse the JSON (like a gentleman).
-          return resolve(JSON.parse(data))
-        })
-        .catch((err) => {
-          return reject(err)
-        })
-    })
+          'x-api-key': this._apiKey,
+        },
+      })
+      .then(rsp => {
+        const { data } = rsp
+        data.title = get(data, 'title', false).trim()
+        data.cleanContent = entities
+          .decode(striptags(data.content || ''))
+          .replace(/[\n|\r]+/g, ' ')
+          .trim()
+        return data
+      })
   }
 }
 
