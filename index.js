@@ -20,7 +20,7 @@ class MercuryClient {
       })
       .then(rsp => {
         const { data } = rsp
-        data.title = get(data, 'title', false).trim()
+        data.title = (data.title || '').trim()
         data.cleanContent = entities
           .decode(striptags(data.content || ''))
           .replace(/[\n|\r]+/g, ' ')
