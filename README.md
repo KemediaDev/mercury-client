@@ -23,6 +23,10 @@ const mercuryData = await mc.parse('https://trackchanges.postlight.com/building-
 console.log('mercuryData', mercuryData)
 ```
 
+## Example
+
+`npm run dev`
+
 ## Version History
 
 - 1.0.0 - Used request + request promise
